@@ -16,6 +16,7 @@ const Login = () => {
 					id="password"
 					placeholder="Password"
 				/>
+				<button>Login</button>
 			</form>
 		</div>
 	);
