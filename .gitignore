@@ -8,8 +8,6 @@
 # Ignore .env file
 .env
 
-.env
-
 # testing
 /coverage
 
