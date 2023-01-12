@@ -21,30 +21,69 @@ function App() {
 				<Routes>
 					<Route path="/">
 						<Route index element={<Home />} />
-						<Route path="login" element={<Login />} />
+						<Route
+							path="login"
+							element={
+								<RequireAuth>
+									<Login />
+								</RequireAuth>
+							}
+						/>
 						<Route path="users">
-							<Route index element={<List />} />
-							<Route path=":userId" element={<Single />} />
+							<Route
+								index
+								element={
+									<RequireAuth>
+										<List />
+									</RequireAuth>
+								}
+							/>
+							<Route
+								path=":userId"
+								element={
+									<RequireAuth>
+										<Single />
+									</RequireAuth>
+								}
+							/>
 							<Route
 								path="new"
 								element={
-									<New
-										inputs={userInputs}
-										title="Add New User"
-									/>
+									<RequireAuth>
+										<New
+											inputs={userInputs}
+											title="Add New User"
+										/>
+									</RequireAuth>
 								}
 							/>
 						</Route>
 						<Route path="products">
-							<Route index element={<List />} />
-							<Route path=":productId" element={<Single />} />
+							<Route
+								index
+								element={
+									<RequireAuth>
+										<List />
+									</RequireAuth>
+								}
+							/>
+							<Route
+								path=":productId"
+								element={
+									<RequireAuth>
+										<Single />
+									</RequireAuth>
+								}
+							/>
 							<Route
 								path="new"
 								element={
-									<New
-										inputs={productInputs}
-										title="Add New Product"
-									/>
+									<RequireAuth>
+										<New
+											inputs={productInputs}
+											title="Add New Product"
+										/>
+									</RequireAuth>
 								}
 							/>
 						</Route>
